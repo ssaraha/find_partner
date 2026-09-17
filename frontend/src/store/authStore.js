@@ -3,7 +3,8 @@ import axios from "axios";
 
 import { persist } from 'zustand/middleware';
 
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = 'https://find-partner.onrender.com/api/auth';
+// const API_URL = 'http://localhost:5000/api/auth';
 axios.defaults.withCredentials = true;
 
 export const useAuthStore = create(

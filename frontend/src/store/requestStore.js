@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import axios from "axios";
 
-const API_URL = 'http://localhost:5000/api/requests';
+const API_URL = 'Follow link (ctrl + click)/api/requests';
 axios.defaults.withCredentials = true;
 export const useRequestStore = create(
     (set) => ({

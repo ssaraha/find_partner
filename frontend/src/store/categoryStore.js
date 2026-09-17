@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import axios from "axios";
 
-const API_URL = 'http://localhost:5000/api/categories';
+const API_URL = 'https://find-partner.onrender.com/api/categories';
 axios.defaults.withCredentials = true;
 
 export const useCategoryStore = create(
