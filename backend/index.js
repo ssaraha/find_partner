@@ -7,10 +7,13 @@ import categoryRoutes from "./routes/categoryRoutes.js"
 import requestRoutes from "./routes/requestRoutes.js"
 import companyRoutes from "./routes/companyRoutes.js"
 import cors from "cors";
+import path from "path"
 
 import cookieParser from "cookie-parser";
 
 const app = express();
+
+const __dirname = path.resolve();
 
 dotenv.config();
 
@@ -32,11 +35,16 @@ app.use("/api/categories", categoryRoutes);
 app.use("/api/requests", requestRoutes);
 app.use("/api/companies", companyRoutes);
 
+console.log("ENV VAR .... ", process.env.NODE_ENV)
 
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname, "frontend/dist")));
+    app.get(/(.*)/, (req, res) => {
+        res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
+    })
+}
 
 app.listen(PORT, () => {
     connectDB();
     console.log(`Server is running on port ${PORT} now ...`)
 });
-
-//MONGODB_URI="mongodb+srv://aina:3LF0jn8alBE5vnj8@cluster0.hmyccqt.mongodb.net/portofolio?appName=my_project"
