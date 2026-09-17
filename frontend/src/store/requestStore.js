@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import axios from "axios";
 
-const API_URL = 'Follow link (ctrl + click)/api/requests';
+const API_URL = 'https://find-partner.onrender.com/api/requests';
 axios.defaults.withCredentials = true;
 export const useRequestStore = create(
     (set) => ({
